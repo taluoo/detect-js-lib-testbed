@@ -1,0 +1,21 @@
+{
+  "name": "detect-js-lib-testbed",
+  "homepage": "https://github.com/taluoo/detect-js-lib-testbed",
+  "authors": [
+    "taluoo"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "audiojs": "^1.0.1",
+    "jPlayer": "jplayer#^2.9.2"
+  }
+}
