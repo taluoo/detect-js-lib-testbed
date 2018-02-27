@@ -7,12 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="referrer" content="no-referrer">
     <title>Document</title>
+    <script src="bower_components/audiojs/audiojs/audio.js"></script>
+
 </head>
 <body>
-<h3>welcome to detect js lib testbed</h3>
-<ul>
-    <li><a href="kolber_audiojs.html">kolber/audiojs</a></li>
-</ul>
+
+https://github.com/kolber/audiojs
+<p>
+    1. 安装：bower install audiojs
+</p>
+
+<script>
+    audiojs.events.ready(function() {
+        var as = audiojs.createAll();
+    });
+</script>
+
 
 </body>
 </html>
