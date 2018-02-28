@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer">
+    <title>Document</title>
+    <script src="bower_components/plupload/js/plupload.full.min.js"></script>
+</head>
+<body>
+
+<p>
+    安装 bower install plupload
+</p>
+
+https://github.com/moxiecode/plupload/wiki/Getting-Started
+
+<ul id="filelist"></ul>
+<br />
+
+<div id="container">
+    <a id="browse" href="javascript:;">[Browse...]</a>
+    <a id="start-upload" href="javascript:;">[Start Upload]</a>
+</div>
+
+<script type="text/javascript">
+    var uploader = new plupload.Uploader({
+        browse_button: 'browse', // this can be an id of a DOM element or the DOM element itself
+        url: 'upload.php'
+    });
+
+    uploader.init();
+</script>
+</body>
+</html>
