@@ -17,6 +17,7 @@
   "dependencies": {
     "audiojs": "^1.0.1",
     "jPlayer": "jplayer#^2.9.2",
-    "mediaelement": "^4.2.8"
+    "mediaelement": "^4.2.8",
+    "plupload": "^3.1.2"
   }
 }
