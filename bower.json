@@ -18,6 +18,7 @@
     "audiojs": "^1.0.1",
     "jPlayer": "jplayer#^2.9.2",
     "mediaelement": "^4.2.8",
-    "plupload": "^3.1.2"
+    "plupload": "^3.1.2",
+    "clappr": "^0.2.87"
   }
 }
