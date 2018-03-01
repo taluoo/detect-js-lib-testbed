@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer">
+    <title>Document</title>
+</head>
+<body>
+https://github.com/mailru/FileAPI
+
+202
+3,209 469 mailru/FileAPI
+Code  Issues 32  Pull requests 2  Projects 0  Wiki  Insights
+FileAPI — a set of javascript tools for working with files. Multiupload, drag'n'drop and chunked file upload. Images: crop, resize and auto orientation by EXIF. http://mailru.github.io/FileAPI/
+697 commits
+17 branches
+20 releases
+31 contributors
+JavaScript 59.7%	 ActionScript 31.1%	 HTML 6.4%	 CSS 1.8%	 PHP 1.0%
+Latest commit 18aafe0  on 29 Nov 2017
+@RubaXa
+RubaXa v2.0.25: * npm.files
+custom-tasks	fixes	4 years ago
+dist	v2.0.25: * npm.files	3 months ago
+examples	Fix examples/thumbnails for Internet Explorer	3 years ago
+flash	allow gif and bmp to resize	2 years ago
+lib	v2.0.25: * npm.files	3 months ago
+node	* 95 assertions passed	3 years ago
+plugins	#245: - jquery.fileapi	4 years ago
+server	+ Access-Control-Allow-Credentials	3 years ago
+statics	* example id [fixed issue #222]	4 years ago
+tests	add big.jpg to test files	9 months ago
+.gitignore	+ big.jpg	9 months ago
+.travis.yml	* update node version for travis 4.5	3 months ago
+Gruntfile.js	+ use default jam name	3 months ago
+LICENSE	added FileAPI	5 years ago
+README.md	Added options.cache to documentation	6 months ago
+README.ru.md	Add flash SOP bypass warning in readme	2 years ago
+bower.json	Merge pull request #320 from ukupat/master	3 years ago
+crossdomain.xml	#85: add github.io to crossdomain.xml	5 years ago
+index.html	- docs links	4 years ago
+package.json	v2.0.25: * npm.files	3 months ago
+support.html	* clean project	5 years ago
+README.md
+
+FileAPI
+A set of JavaScript tools for working with files.
+
+
+Get started
+Download the files from the dist directory, and then:
+
+<div>
+    <!-- "js-fileapi-wrapper" -- required class -->
+    <div class="js-fileapi-wrapper upload-btn">
+        <div class="upload-btn__txt">Choose files</div>
+        <input id="choose" name="files" type="file" multiple />
+    </div>
+    <div id="images"><!-- previews --></div>
+</div>
+
+<script>window.FileAPI = { staticPath: '/bower_components/fileapi/dist/' };</script>
+<script src="bower_components/fileapi/dist/FileAPI.js"></script>
+<script>
+    var choose = document.getElementById('choose');
+    FileAPI.event.on(choose, 'change', function (evt){
+        var files = FileAPI.getFiles(evt); // Retrieve file list
+
+        FileAPI.filterFiles(files, function (file, info/**Object*/){
+            if( /^image/.test(file.type) ){
+                return	info.width >= 320 && info.height >= 240;
+            }
+            return	false;
+        }, function (files/**Array*/, rejected/**Array*/){
+            if( files.length ){
+                // Make preview 100x100
+                FileAPI.each(files, function (file){
+                    FileAPI.Image(file).preview(100).get(function (err, img){
+                        images.appendChild(img);
+                    });
+                });
+
+                // Uploading Files
+                FileAPI.upload({
+                    url: './ctrl.php',
+                    files: { images: files },
+                    progress: function (evt){ /* ... */ },
+                    complete: function (err, xhr){ /* ... */ }
+                });
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
